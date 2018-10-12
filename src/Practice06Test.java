@@ -1,3 +1,4 @@
+package src;
 
 public class Practice06Test {
 	
@@ -10,7 +11,7 @@ public class Practice06Test {
 	
 	public Practice06Test() {
 		queue = new ArrayQueue();
-		stack = new ArrayStack();
+//		stack = new ArrayStack();
 	}
 	
 	
@@ -46,7 +47,7 @@ public class Practice06Test {
 	
 	
 	public void runTest() {
-		// Theory: The Queue and Stack constructors have been called.
+		// Theory: The src.Queue and src.Stack constructors have been called.
 		int grade = 0;
 		try {
 			// If the stack and queue are empty (default), that's a milestone.
@@ -54,7 +55,7 @@ public class Practice06Test {
 				grade += 5;
 			if (queue.empty())
 				grade += 5;
-			System.out.println("[+" + grade + "%] Queue and Stack declared correctly.");
+			System.out.println("[+" + grade + "%] src.Queue and src.Stack declared correctly.");
 	
 			// First tests: is the queue correct? Is the stack correct?
 			String first = "first";
@@ -62,19 +63,19 @@ public class Practice06Test {
 			queue.enqueue(first);
 			queue.enqueue(second);
 			if (queue.dequeue() == first && queue.dequeue() == second && queue.empty()) {
-				System.out.println("[+10%] Queue functions appear correct.");
+				System.out.println("[+10%] src.Queue functions appear correct.");
 				grade += 10;
 			} else {
-				System.out.println("[ XX ] One or more Queue functions appear incorrect.");
+				System.out.println("[ XX ] One or more src.Queue functions appear incorrect.");
 			}
 			
 			stack.push(first);
 			stack.push(second);
 			if (stack.pop() == second && stack.pop() == first && stack.empty()) {
-				System.out.println("[+10%] Stack functions appear correct.");
+				System.out.println("[+10%] src.Stack functions appear correct.");
 				grade += 10;
 			} else {
-				System.out.println("[ XX ] One or more Stack functions appear incorrect.");
+				System.out.println("[ XX ] One or more src.Stack functions appear incorrect.");
 			}
 			
 			// Additional sanity test: place a large number of items in the stack / queue to see if it resizes.
@@ -91,10 +92,10 @@ public class Practice06Test {
 				stack.pop();
 			}
 			if (queue.empty() && stack.empty() && ! emptiedEarly) {
-				System.out.println("[+10%] Stack and Queue appear to resize correctly.");
+				System.out.println("[+10%] src.Stack and src.Queue appear to resize correctly.");
 				grade += 10;
 			} else {
-				System.out.println("[ XX ] Stack or Queue do not resize correctly.");
+				System.out.println("[ XX ] src.Stack or src.Queue do not resize correctly.");
 			}
 			
 			System.out.println("====================");
