@@ -11,7 +11,7 @@ public class Practice06Test {
 	
 	public Practice06Test() {
 		queue = new ArrayQueue();
-//		stack = new ArrayStack();
+		stack = new ArrayStack();
 	}
 	
 	
@@ -28,8 +28,13 @@ public class Practice06Test {
 	public boolean isPalindrome(String item) {
 		clearData();
 		for (int i = 0; i < item.length(); i++) {
-			stack.push(item.substring(i, i+1));
-			queue.enqueue(item.substring(i, i+1));
+			// Before pushing/enqueueing, make sure the character is alphabetic.
+			Character chr = item.substring(i,i+1).toCharArray()[0];
+			chr = Character.toLowerCase(chr);
+			if (Character.isAlphabetic(chr)) {
+				stack.push(chr);
+				queue.enqueue(chr);
+			}
 		}
 
 		while (! stack.empty() && ! queue.empty()) {

@@ -8,6 +8,11 @@ public class ArrayQueue implements Queue {
     private int head;
     private int tail;
 
+    public ArrayQueue() {
+        arr = new Object[64];
+        head = 0;
+        tail = 0;
+    }
 
     public Object dequeue() {
         if (empty()) {
@@ -40,12 +45,18 @@ public class ArrayQueue implements Queue {
 
     private void grow_array() {
         Object[] newArr = new Object[arr.length*2];
+        int oldLength = arr.length;
+
         int newIndex = 0;
 
-        while (!empty()) {
-            newArr[newIndex]=dequeue();
+        while (!this.empty()) {
+            newArr[newIndex]=this.dequeue();
             newIndex++;
         }
+
+        arr = newArr;
+        head = 0;
+        tail = oldLength-1;
     }
 
 }
